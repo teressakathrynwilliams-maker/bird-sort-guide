@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Sort 2: Level 10 Strategy Guide - FREE Download</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background birds */
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .bird {
+            position: absolute;
+            font-size: 40px;
+            animation: float 20s infinite;
+        }
+
+        .bird:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .bird:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .bird:nth-child(3) { top: 60%; left: 20%; animation-delay: 4s; }
+        .bird:nth-child(4) { top: 70%; right: 10%; animation-delay: 6s; }
+        .bird:nth-child(5) { top: 40%; left: 50%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .logo .bird-emoji {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: scaleIn 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #667eea;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9f0f7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.4;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .cta-subtitle {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .unlock-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-family: 'Fredoka', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .unlock-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f7f9fc;
+        }
+
+        .unlock-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .bonus-section {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .bonus-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .bonus-list {
+            color: #78350f;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .testimonial {
+            background: #f7f9fc;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Content locker overlay */
+        .locker-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .locker-overlay.active {
+            display: flex;
+        }
+
+        .locker-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-locker {
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            color: #718096;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .close-locker:hover {
+            color: #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            .main-card {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                font-size: 40px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="bird">🐦</div>
+        <div class="bird">🦜</div>
+        <div class="bird">🦅</div>
+        <div class="bird">🐧</div>
+        <div class="bird">🦆</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="bird-emoji">🐦</span> BIRD SORT 2
+            </div>
+            <div class="tagline">Master the Game with Our Expert Strategy Guide</div>
+        </div>
+
+        <div class="main-card">
+            <div class="badge">🎮 FREE Strategy Guide</div>
+            
+            <h1>Unlock the <span class="highlight">Ultimate Level 10</span> Walkthrough & Pro Tips!</h1>
+            
+            <p class="subtitle">
+                Stuck on Level 10? Want to reach Level 100? Get instant access to our comprehensive 
+                strategy guide packed with expert tips, proven techniques, and step-by-step walkthroughs!
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <div class="feature-title">Complete Walkthrough</div>
+                    <div class="feature-desc">Step-by-step guide to beating Level 10 and beyond</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Pro Strategies</div>
+                    <div class="feature-desc">Expert techniques used by top players</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">Coin Management</div>
+                    <div class="feature-desc">Maximize your in-game currency</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛠️</div>
+                    <div class="feature-title">Tool Mastery</div>
+                    <div class="feature-desc">When and how to use power-ups effectively</div>
+                </div>
+            </div>
+
+            <div class="bonus-section">
+                <div class="bonus-title">🎁 BONUS CONTENT INCLUDED:</div>
+                <ul class="bonus-list">
+                    <li>Advanced techniques for levels 11-20</li>
+                    <li>Bomb bird management strategies</li>
+                    <li>Common mistakes to avoid (save hours of frustration!)</li>
+                    <li>Pattern recognition guide for faster solving</li>
+                </ul>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "This guide helped me get past Level 10 in just one try! The strategies actually work. 
+                    I'm now on Level 35 and still using these tips every day!"
+                </div>
+                <div class="testimonial-author">— Sarah M., Bird Sort Player</div>
+            </div>
+
+            <div class="cta-section">
+                <div class="cta-title">🔓 Get Your FREE Guide Now!</div>
+                <div class="cta-subtitle">
+                    Complete one quick offer below to unlock your instant download
+                </div>
+                <button class="unlock-btn" onclick="showContentLocker()">
+                    UNLOCK MY GUIDE →
+                </button>
+            </div>
+
+            <div style="text-align: center; color: #718096; font-size: 14px; margin-top: 30px;">
+                <p>✨ 100% FREE • Instant Access • No Credit Card Required ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Bird Sort 2 Strategy Guide | © 2025 | For Educational & Entertainment Purposes</p>
+    </div>
+
+    <!-- Content Locker Overlay -->
+    <div class="locker-overlay" id="lockerOverlay">
+        <div class="locker-content">
+            <span class="close-locker" onclick="closeContentLocker()">&times;</span>
+            <h2 style="color: #2d3748; margin-bottom: 20px; font-family: 'Fredoka', sans-serif;">
+                🎉 Almost There!
+            </h2>
+            <p style="color: #718096; margin-bottom: 30px;">
+                Complete one simple offer below to unlock your FREE Bird Sort 2 Strategy Guide!
+            </p>
+            
+            <!-- REPLACE THIS SECTION WITH YOUR CPAGRIP CONTENT LOCKER CODE -->
+            <div id="cpagrip-locker">
+                <!-- 
+                    INSTRUCTIONS:
+                    1. Go to CPAGrip dashboard
+                    2. Create a Content Locker
+                    3. Copy the HTML/JavaScript code
+                    4. Paste it here, replacing this comment
+                    
+                    Example:
+                    <script src="https://your-cpagrip-locker-url.js"></script>
+                    <div id="locker-container"></div>
+                -->
+                
+                <!-- TEMPORARY PLACEHOLDER - REPLACE WITH YOUR ACTUAL LOCKER CODE -->
+                <div style="background: #f7f9fc; padding: 40px; border-radius: 10px; border: 2px dashed #667eea;">
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 10px;">
+                        📋 PASTE YOUR CPAGRIP LOCKER CODE HERE
+                    </p>
+                    <p style="color: #718096; font-size: 14px;">
+                        Instructions are in the HTML comments above
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContentLocker() {
+            document.getElementById('lockerOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContentLocker() {
+            document.getElementById('lockerOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close locker when clicking outside the content
+        document.getElementById('lockerOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContentLocker();
+            }
+        });
+
+        // Handle successful unlock (call this function after user completes offer)
+        function unlockContent() {
+            // Hide the locker
+            closeContentLocker();
+            
+            // Trigger download of the PDF
+            window.location.href = 'Bird_Sort_2_Strategy_Guide.pdf';
+            
+            // Show success message
+            alert('🎉 Success! Your guide is downloading now. Check your Downloads folder!');
+        }
+
+        // Example: If your CPAGrip locker has a callback function, call unlockContent()
+        // window.cpaCallback = function() {
+        //     unlockContent();
+        // }
+    </script>
+</body>
+</html>
