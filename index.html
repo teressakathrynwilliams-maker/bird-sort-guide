@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Bird Sort 2 Strategy Guide - Master Level 10 and beyond with expert tips, walkthroughs, and pro strategies!">
     <title>Bird Sort 2: Level 10 Strategy Guide - FREE Download</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,6 +229,8 @@
             font-family: 'Fredoka', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .unlock-btn:hover {
@@ -287,65 +290,6 @@
             padding: 30px 20px;
             font-size: 14px;
             opacity: 0.8;
-        }
-
-        /* Content locker overlay */
-        .locker-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .locker-overlay.active {
-            display: flex;
-        }
-
-        .locker-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            animation: slideUp 0.4s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-locker {
-            float: right;
-            font-size: 30px;
-            font-weight: bold;
-            color: #718096;
-            cursor: pointer;
-            line-height: 1;
-            transition: color 0.3s ease;
-        }
-
-        .close-locker:hover {
-            color: #2d3748;
         }
 
         @media (max-width: 768px) {
@@ -438,11 +382,11 @@
             <div class="cta-section">
                 <div class="cta-title">🔓 Get Your FREE Guide Now!</div>
                 <div class="cta-subtitle">
-                    Complete one quick offer below to unlock your instant download
+                    Click below to unlock your instant download - Complete one simple offer!
                 </div>
-                <button class="unlock-btn" onclick="showContentLocker()">
-                    UNLOCK MY GUIDE →
-                </button>
+                <a href="https://installyourfiles.com/1869019" target="_blank" class="unlock-btn">
+                    DOWNLOAD MY GUIDE →
+                </a>
             </div>
 
             <div style="text-align: center; color: #718096; font-size: 14px; margin-top: 30px;">
@@ -454,79 +398,5 @@
     <div class="footer">
         <p>Bird Sort 2 Strategy Guide | © 2025 | For Educational & Entertainment Purposes</p>
     </div>
-
-    <!-- Content Locker Overlay -->
-    <div class="locker-overlay" id="lockerOverlay">
-        <div class="locker-content">
-            <span class="close-locker" onclick="closeContentLocker()">&times;</span>
-            <h2 style="color: #2d3748; margin-bottom: 20px; font-family: 'Fredoka', sans-serif;">
-                🎉 Almost There!
-            </h2>
-            <p style="color: #718096; margin-bottom: 30px;">
-                Complete one simple offer below to unlock your FREE Bird Sort 2 Strategy Guide!
-            </p>
-            
-            <!-- REPLACE THIS SECTION WITH YOUR CPAGRIP CONTENT LOCKER CODE -->
-            <div id="cpagrip-locker">
-                <!-- 
-                    INSTRUCTIONS:
-                    1. Go to CPAGrip dashboard
-                    2. Create a Content Locker
-                    3. Copy the HTML/JavaScript code
-                    4. Paste it here, replacing this comment
-                    
-                    Example:
-                    <script src="https://your-cpagrip-locker-url.js"></script>
-                    <div id="locker-container"></div>
-                -->
-                
-                <!-- TEMPORARY PLACEHOLDER - REPLACE WITH YOUR ACTUAL LOCKER CODE -->
-                <div style="background: #f7f9fc; padding: 40px; border-radius: 10px; border: 2px dashed #667eea;">
-                    <p style="color: #667eea; font-weight: 600; margin-bottom: 10px;">
-                        📋 PASTE YOUR CPAGRIP LOCKER CODE HERE
-                    </p>
-                    <p style="color: #718096; font-size: 14px;">
-                        Instructions are in the HTML comments above
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function showContentLocker() {
-            document.getElementById('lockerOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContentLocker() {
-            document.getElementById('lockerOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close locker when clicking outside the content
-        document.getElementById('lockerOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeContentLocker();
-            }
-        });
-
-        // Handle successful unlock (call this function after user completes offer)
-        function unlockContent() {
-            // Hide the locker
-            closeContentLocker();
-            
-            // Trigger download of the PDF
-            window.location.href = 'Bird_Sort_2_Strategy_Guide.pdf';
-            
-            // Show success message
-            alert('🎉 Success! Your guide is downloading now. Check your Downloads folder!');
-        }
-
-        // Example: If your CPAGrip locker has a callback function, call unlockContent()
-        // window.cpaCallback = function() {
-        //     unlockContent();
-        // }
-    </script>
 </body>
 </html>
